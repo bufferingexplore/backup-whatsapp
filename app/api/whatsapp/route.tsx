@@ -22,7 +22,7 @@ const connectToWhatsApp = async (res?: NextApiResponse) => {
     ),
   });
 
-  sock.ev.on("connection.update", (update) => {
+  sock.ev.on("connection.update", (update: any) => {
     const { connection, qr, lastDisconnect } = update;
     if (qr && res) {
       res.status(200).json({ qr });
